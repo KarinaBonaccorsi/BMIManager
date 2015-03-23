@@ -25,13 +25,12 @@ public class App {
 
             switch (choice) {
                 case 1: {
-                    patient.setName(scanner.nextLine());
-                    patient.setAge(scanner.nextInt());
-                    patient.setDetails(scanner.nextDouble(), scanner.nextDouble());
+                    addPatient(patient, scanner);
                     break;
                 }
                 case 2: {
-                    System.out.println(String.format("Name: %s  Age: %d  BMI: %f", patient.getName(),patient.getAge(), patient.getBMI()));
+                    viewPatient(patient);
+                    break;
 
                 }
 
@@ -40,7 +39,31 @@ public class App {
                     break running;
                 }
             }
-
         }
     }
-}
+
+
+
+    public static void viewPatient(Patient patient){
+        String message = String.format("Name: %s Age: %d BMI: %f", patient.getName(),patient.getAge(), patient.getBMI());
+        System.out.println(message);
+    }
+    public static void addPatient(Patient patient, Scanner scanner){
+        System.out.println("Enter patient name: ");
+        patient.setName(scanner.nextLine());
+
+        System.out.println("Enter patient age: ");
+        patient.setAge(scanner.nextInt());
+
+        System.out.println("Enter patient height: ");
+        double height = scanner.nextDouble();
+
+        System.out.println("Enter patient weight: ");
+        double weight = scanner.nextDouble();
+        patient.setDetails(height, weight);
+
+    }
+
+
+
+        }
