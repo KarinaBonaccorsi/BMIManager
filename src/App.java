@@ -11,7 +11,7 @@ public class App {
         running:
         while (true) {
 
-            System.out.println("BMI Manager");
+            System.out.println("\nBMI Manager");
             System.out.println("Please select from the following menu options: \n" +
                     "\t1. Add new patient\n" +
                     "\t2. View patient\n" +
@@ -25,11 +25,19 @@ public class App {
 
             switch (choice) {
                 case 1: {
-                    patients.add(createPatient(scanner));
+                    if (patients.isFull()) {
+                        System.out.println("\nDatabase is full");
+                    } else {
+                        patients.add(createPatient(scanner));
+                    }
                     break;
                 }
                 case 2: {
-                    viewPatients(patients);
+                    if (patients.isEmpty()) {
+                        System.out.println("\nDatabase is empty");
+                    } else {
+                        viewPatients(patients);
+                    }
                     break;
 
                 }
