@@ -25,6 +25,17 @@ public class Patient {
         return weight / Math.pow(height, 2);
     }
 
+    public void setAge(int age) {
+        this.age=age;
+    }
+
+    public void setHeight(double height) {
+        this.height=height;
+    }
+
+    public void setWeight(double weight) {
+        this.weight=weight;
+    }
 }
 
 
