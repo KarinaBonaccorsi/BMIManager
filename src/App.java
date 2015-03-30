@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
 
-        Patients patients = new Patients(10);
+        Patients patients = new Patients();
 
         running:
         while (true) {
@@ -25,13 +25,10 @@ public class App {
 
             switch (choice) {
                 case 1: {
-                    if (patients.isFull()) {
-                        System.out.println("\nDatabase is full");
-                    } else {
-                        patients.add(createPatient(scanner));
-                    }
-                    break;
+                    patients.add(createPatient(scanner));
                 }
+                break;
+
                 case 2: {
                     if (patients.isEmpty()) {
                         System.out.println("\nDatabase is empty");
@@ -39,16 +36,13 @@ public class App {
                         viewPatients(patients);
                     }
                     break;
-
                 }
-
                 case 3: {
                     System.out.println("Good bye!");
                     break running;
                 }
             }
-        }
-    }
+        }}
 
 
 
